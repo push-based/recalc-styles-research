@@ -22,9 +22,11 @@
     <span>{{ inputUnAffectedAmount.value }}</span>
   </div>
   <div>
-    <label for="blank">blank</label>
+    <label for="blank">display: none</label>
     <input
       type="checkbox"
+      #checkDisplayNone
+      (change)="setItemVisibility(checkDisplayNone.checked)"
       id="blank">
   </div>
   <div>
@@ -48,20 +50,20 @@
     <button (click)="toggleWrapper()">toggle wrapper</button>
   </div>
 </div>
-<div id="item-wrapper"
-     class="item-wrapper">
-  <div
-    *ngFor="let item of items; let i = index"
-    class="item">
-    {{ i }}
+<div class="container">
+  <div id="item-wrapper"
+       class="item-wrapper">
+    <div
+      *ngFor="let item of items; let i = index"
+      class="item">
+      {{ i }}
+    </div>
+  </div>
+  <div class="unaffected-wrapper">
+    <div class="unaffected-item"
+         *ngFor="let item of unAffectedItems; let i = index">
+      {{ i }}
+    </div>
   </div>
 </div>
-<div class="unaffected-item" *ngFor="let item of unAffectedItems">
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-  <p></p>
-</div>
+

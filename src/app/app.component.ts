@@ -13,6 +13,12 @@ export class AppComponent {
   private dummyStyle?: HTMLStyleElement;
   private matchingStyle?: HTMLStyleElement;
 
+  setItemVisibility(visible: boolean) {
+    document
+      .getElementById('item-wrapper')
+      ?.classList.toggle('hide-items', visible);
+  }
+
   setItemAmount(amount: string) {
     this.items = getItems(parseInt(amount));
   }
