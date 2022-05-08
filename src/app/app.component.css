@@ -1,0 +1,40 @@
+.demo-panel {
+
+}
+
+.item-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-wrapper.active .item {
+  font-weight: bold;
+  /* TODO: make it adjustable via component to showcase more styles add more work */
+  /*color: blue;*/
+  /*transform: rotate(20deg);*/
+  background-color: rgba(255, 192, 203, .2);
+}
+
+.item {
+  width: 50px;
+  height: 50px;
+  border: 1px solid green;
+  transition: border-color 125ms ease-in, color 125ms ease-in;
+}
+
+.item.active {
+  font-weight: bold;
+  /*color: blue;*/
+  /*transform: rotate(20deg);*/
+  background-color: rgba(255, 192, 203, .2);
+}
+
+.item:hover {
+  border-color: #0b0bcf;
+  color: #b62121;
+}
+
+.unaffected-item {
+  visibility: hidden;
+
+}

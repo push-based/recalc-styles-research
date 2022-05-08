@@ -1,27 +1,66 @@
-# CssRecalculateStyles
+# What influences recalculate style work
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+* https://developer.mozilla.org/de/docs/Web/CSS/Specificity
+* https://levelup.gitconnected.com/how-to-understand-css-specificity-2caabc5f67a9
+* https://dev.to/coderarchive/css-specificity-explained-4n31
 
-## Development server
+## Assumptions:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Styles**:
+* amount of total rules shipped by styles of application
+  * _demo_: add a bunch of styles with button, change color of any element
+* cardinality
+  * id > class > tag
+* specificity of style rule
+* selector
+  * :not(:has(:is(nth-of(...))))
+  * there are selectors that are harder to compute than others
 
-## Code scaffolding
+**DOM**:
+* amount of currently active dom nodes
+  * checked
+* nesting depth
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Demos
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+```html
+<body class="hover-button">
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    <button></button>
 
-## Running end-to-end tests
+</body>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
+```css
+body.hover-button button {
+  border-color: red;
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+```html
+<head>
+  <style>
+    button.hover-button {
+      color: red;
+    }
+  </style>
+</head>
+<body >
+
+<button class="hover-button"></button>
+
+</body>
+
+```
+
+```css
+button.hover-button {
+  border-color: red;
+}
+
+
+```
