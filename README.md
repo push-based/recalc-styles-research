@@ -6,6 +6,16 @@
 * 💪 https://docs.google.com/document/d/1vEW86DaeVs4uQzNFI5R-_xS9TcS1Cs_EUsHRSgCHGu8/view#heading=h.v5uqxeqtd5uh
 * https://specificity.keegan.st/
 
+## Test
+
+To check the specificity of a selector in the CLI run:
+```bash
+npx specificity <selectors>
+```
+
+This will return the specificity as array. e.g. `npx specificity .test` returns `0,0,1,0`;
+
+
 ## Assumptions:
 
 **Styles**:
