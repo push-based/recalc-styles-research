@@ -1,13 +1,15 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { getItems } from './data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   items = getItems();
+  nestings = 5;
   unAffectedItems: number[] = [];
 
   private dummyStyle?: HTMLStyleElement;
@@ -17,6 +19,10 @@ export class AppComponent {
     document
       .getElementById('item-wrapper')
       ?.classList.toggle('hide-items', visible);
+  }
+
+  setItemNesting(amount: string) {
+    this.nestings = parseInt(amount);
   }
 
   setItemAmount(amount: string) {
@@ -31,9 +37,32 @@ export class AppComponent {
     document.getElementById('item-wrapper')?.classList.toggle('active');
   }
 
+  toggleWrapperNestedInner() {
+    document.getElementById('item-wrapper')?.classList.toggle('active-inner');
+  }
+
+  toggleWrapperNestedOuter() {
+    document.getElementById('item-wrapper')?.classList.toggle('active-outer');
+  }
+
   toggleItems() {
     Array.from(document.getElementsByClassName('item')).forEach(item => {
       item.classList.toggle('active');
+    });
+  }
+
+  toggleItemsNestedInner() {
+    Array.from(document.getElementsByClassName('item')).forEach(item => {
+      const nestedItems = item.querySelectorAll('.nesting');
+      const nested = nestedItems.item(nestedItems.length - 1);
+      nested!.classList.toggle('active');
+    });
+  }
+
+  toggleItemsNestedOuter() {
+    Array.from(document.getElementsByClassName('item')).forEach(item => {
+      const nested = item.querySelector('.nesting');
+      nested!.classList.toggle('active');
     });
   }
 

@@ -11,6 +11,17 @@
     <span>{{ inputAmount.value }}</span>
   </div>
   <div>
+    <label>Nesting</label>
+    <input
+      type="range"
+      min="1"
+      max="200"
+      value="5"
+      (input)="setItemNesting(inputNesting.value)"
+      #inputNesting>
+    <span>{{ inputNesting.value }}</span>
+  </div>
+  <div>
     <label>unaffected items</label>
     <input
       type="range"
@@ -46,8 +57,19 @@
       id="matchingStyles">
   </div>
   <div>
-    <button (click)="toggleItems()">toggle items</button>
-    <button (click)="toggleWrapper()">toggle wrapper</button>
+    <textarea></textarea>
+  </div>
+  <div>
+    <div><strong>Toggle Items</strong></div>
+    <button (click)="toggleItems()">toggle active</button>
+    <button (click)="toggleItemsNestedInner()">toggle nested (inner)</button>
+    <button (click)="toggleItemsNestedOuter()">toggle nested (outer)</button>
+  </div>
+  <div>
+    <div><strong>Toggle Wrapper</strong></div>
+    <button (click)="toggleWrapper()">toggle active</button>
+    <button (click)="toggleWrapperNestedInner()">toggle nested (inner)</button>
+    <button (click)="toggleWrapperNestedOuter()">toggle nested (outer)</button>
   </div>
 </div>
 <div class="container">
@@ -56,13 +78,15 @@
     <div
       *ngFor="let item of items; let i = index"
       class="item">
-      {{ i }}
+      <span class="content">{{ i }}</span>
+      <nested class="nesting" [depth]="nestings"></nested>
     </div>
   </div>
   <div class="unaffected-wrapper">
     <div class="unaffected-item"
          *ngFor="let item of unAffectedItems; let i = index">
-      {{ i }}
+      <span class="content">{{ i }}</span>
+      <nested class="nesting" [depth]="nestings"></nested>
     </div>
   </div>
 </div>
