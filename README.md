@@ -59,14 +59,27 @@ We assume this behavior is described as [`Descendant Invalidation Sets`](https:/
 </div>
 ```
 
-### Atomic Changes are independent of nesting level of a node
+```css
+/* A lot of work */
+div.active {
+ color: red; 
+}
+
+/* less work then above */
+deeply-nested.active {
+  color: red;
+}
+```
+
+### Changes of the selector of an element cause work that is independent of the work needed to apply styles to the decendents
 
 This finding stays in contrast to `The amount of children of a Node affects recalculate styles`.
 Applying a style change to a container causing one of its children to be affected always costs the 
 same amount of style recalculation work, regardless of its depth.
 
 e.g.
-Toggling a class on `div` will always cause the same amount of style recalculations
+Toggling a class on `div` will always cause the same amount of style recalculations regardless of it's nested children and the nesting level.
+ 
 
 ```html
 <div>
@@ -93,14 +106,10 @@ div.active deeply-nested {
 }
 ```
 
-_OLD_:
-
-
-## Assumptions:
+## Assumptions without a demo:
 
 **Styles**:
-* amount of total rules shipped by styles of application
-  * _demo_: add a bunch of styles with button, change color of any element
+* amount of total rules shipped by styles of application that are applicable to a existing DOM node  
 * cardinality
   * id > class > tag
 * specificity of style rule
@@ -109,55 +118,11 @@ _OLD_:
   * there are selectors that are harder to compute than others
 
 **DOM**:
-* amount of currently active dom nodes
+* amount of currently affected DOM nodes (selector change) and its children
   * checked
 * nesting depth
 
-## Improvements
+## Improvements for the click demo
 
 * input box to change applied class on items
 * text-area for css rules on item
-
-## Demos
-
-
-
-```html
-<body class="hover-button">
-
-    <button></button>
-
-</body>
-
-```
-
-```css
-body.hover-button button {
-  border-color: red;
-}
-
-```
-
-```html
-<head>
-  <style>
-    button.hover-button {
-      color: red;
-    }
-  </style>
-</head>
-<body >
-
-<button class="hover-button"></button>
-
-</body>
-
-```
-
-```css
-button.hover-button {
-  border-color: red;
-}
-
-
-```
