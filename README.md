@@ -1,10 +1,4 @@
-# What influences recalculate style work
-
-* https://developer.mozilla.org/de/docs/Web/CSS/Specificity
-* https://levelup.gitconnected.com/how-to-understand-css-specificity-2caabc5f67a9
-* https://dev.to/coderarchive/css-specificity-explained-4n31
-* 💪 https://docs.google.com/document/d/1vEW86DaeVs4uQzNFI5R-_xS9TcS1Cs_EUsHRSgCHGu8/view#heading=h.v5uqxeqtd5uh
-* https://specificity.keegan.st/
+# Recalculate Styles - Research
 
 ## Test
 
@@ -126,3 +120,19 @@ div.active deeply-nested {
 
 * input box to change applied class on items
 * text-area for css rules on item
+
+
+# Documentation
+
+## Code samples
+
+## Slides
+
+## Specificity
+* https://developer.mozilla.org/de/docs/Web/CSS/Specificity
+* https://levelup.gitconnected.com/how-to-understand-css-specificity-2caabc5f67a9
+* https://dev.to/coderarchive/css-specificity-explained-4n31
+* https://specificity.keegan.st/
+
+## General
+* 💪 https://docs.google.com/document/d/1vEW86DaeVs4uQzNFI5R-_xS9TcS1Cs_EUsHRSgCHGu8/view#heading=h.v5uqxeqtd5uh
