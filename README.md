@@ -44,6 +44,9 @@ with no children.
 e.g.
 Toggling a class on `deeply-nested` will cause less styles recalculations compared to toggling the class
 on the `div` element
+
+We assume this behavior is described as [`Descendant Invalidation Sets`](https://docs.google.com/document/d/1vEW86DaeVs4uQzNFI5R-_xS9TcS1Cs_EUsHRSgCHGu8/edit#bookmark=id.mh94lek836rn)
+
 ```html
 <div>
   <nested>
