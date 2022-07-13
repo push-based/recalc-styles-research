@@ -136,3 +136,4 @@ div.active deeply-nested {
 
 ## General
 * 💪 https://docs.google.com/document/d/1vEW86DaeVs4uQzNFI5R-_xS9TcS1Cs_EUsHRSgCHGu8/view#heading=h.v5uqxeqtd5uh
+* https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/core/css/style-invalidation.md 
